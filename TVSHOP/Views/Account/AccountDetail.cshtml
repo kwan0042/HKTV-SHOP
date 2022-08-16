@@ -1,0 +1,225 @@
+﻿@model TVShop.DataAccess.Customer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="text-center  pt-4">
+    <h1>My Account Details</h1>
+    <hr />
+    <dl class="row justify-content-md-center">
+        <dd class = "col-8 overDiv border border-info">
+            @if (Model.Invoices.Count() == 0)
+            {
+                
+            <div class="inner-div ">
+                <a  class="MainButton5" asp-controller="Products" asp-action="Index">Explore Our Product to Create Your Order</a>
+            </div>
+                
+            }else{
+
+                   
+                <table class="table text-white px-3">
+                        <tr>
+                        
+                            <th colspan="9">
+                                <h3>Order Information</h3>
+                            </th>
+                        </tr>
+                        <tr >
+                            <th>
+                                Order ID
+                            </th>
+                            <th>
+                                Model
+                            </th>
+                            <th>
+                                Manufacturer
+                            </th>
+                            <th>
+                                HdrSupport
+                            </th>
+                            <th>
+                                Inventory In Store
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Prefer Delivery Date
+                            </th>
+                            <th >
+                                    
+                            </th>
+                        </tr>
+                        @foreach (var item in Model.Invoices) {
+                            <tr>
+                                <td>
+                                    @item.InvoiceId
+                                </td>
+                                <td>
+                                    @item.Product.Model
+                                </td>
+                                <td>
+                                    @item.Product.Manufacturer.Name
+                                </td>
+                                <td>
+                                    @item.Product.HdrSupport
+                                </td>
+                                <td>
+                                    @item.Product.Inventory
+                                </td>
+                                <td>
+                                    @item.Product.Price
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>
+                                    @item.Date
+                                </td>
+                                <td>
+                                    
+                                        <a asp-controller="Invoices" asp-action="Edit" asp-route-id="@item.InvoiceId">Edit Order</a>&nbsp;|&nbsp;
+                                     
+                                        <a asp-controller="Invoices" asp-action="Delete" asp-route-ProductId="@item.ProductId" asp-route-CustomerId="@Model.CustomerId" class="gg-remove pt-sm-3"></a>
+                                     
+                                </td>
+                            </tr>
+                        }
+
+                        <tr>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <td>
+                                    Total :
+                                </td>
+                                <td>
+                                    $
+                                    @{
+                                        int sum = 0;
+                                        foreach (var item in Model.Invoices)
+                                        {
+                                            sum += (Convert.ToInt32(item.Product.Price)*Convert.ToInt32(item.Quantity));
+                                        }
+                                            @Html.DisplayTextFor(m => sum)
+                                    }
+                                </td>
+                                <td>
+                                    
+                                    @{
+                                        int sumQ = 0;
+                                        foreach (var item in Model.Invoices)
+                                        {
+                                            sumQ += Convert.ToInt32(item.Quantity);
+                                        }
+                                            @Html.DisplayTextFor(m => sumQ)
+                                    }
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td>
+                                    
+                                </td>
+                            </tr>
+                    
+                </table>
+                <br />
+                <p class="lead">
+                    <a  class="MainButton4" asp-controller="Products" asp-action="Index">Add More Order</a>
+                </p>
+                <br />
+                <p class="lead">
+                    <a  class="MainButton2" onclick = "return confirm('Thanks for purchase! \nPlease confirm the orders to redirect to paymant website.');">Pay Now</a> &nbsp;&nbsp;
+                    <a  class="MainButton3" asp-controller="Invoices" asp-action="DeleteAll" asp-route-CustomerId="@Model.CustomerId" onclick = "return confirm('Are you sure you want to remove all orders ?');">Delete all</a>
+                </p>
+            }
+        </dd>
+        <dd class = "col-3 text-center overDiv border border-info ">
+
+             <table class="table text-white px-3">
+               
+                    <tr>
+                        
+                        <th colspan="2">
+                            <h3>Personal Information</h3>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(item => item.Name)
+                            
+                        </td>
+                    </tr>
+                
+            
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(item => item.Password)
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(item => item.Address)
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(item => item.Phone)
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(item => item.Email)
+                        </td>
+                        
+                    </tr>
+            
+            </table>
+
+
+
+            <div>
+                <a asp-controller="Customers"  asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a>
+            </div>
+        </dd>
+        
+        
+    </dl>
+</div>
+

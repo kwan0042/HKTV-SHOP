@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TVShop", "TVShop.csproj", "{444ECF42-EA7B-4965-B0C0-EE015A7C8511}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{CBB62BF8-DFEF-4EF9-9FC1-57BA1FD71274}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{444ECF42-EA7B-4965-B0C0-EE015A7C8511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB62BF8-DFEF-4EF9-9FC1-57BA1FD71274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB62BF8-DFEF-4EF9-9FC1-57BA1FD71274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB62BF8-DFEF-4EF9-9FC1-57BA1FD71274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB62BF8-DFEF-4EF9-9FC1-57BA1FD71274}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53E9548D-1A2F-4D27-AB72-220EB4A0CFCE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+﻿@model TVShop.DataAccess.Manufacturer
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="text-center pt-4">
+    <h1>Brand's Detail</h1>
+    <hr />
+    <div class="table-users mx-auto">
+   
+       <table  class="mx-auto tb1">
+          <tr>
+             <th class="pt-4 px-5">Name</th>
+             <th class="pt-4 px-5">Country</th>
+             <th width="600" class="pt-2 px-5">Detail</th>
+          </tr>
+
+          <tr>
+             <td class="pb-4">@Html.DisplayFor(model => model.Name)</td>
+             <td class="pb-4">@Html.DisplayFor(model => model.Country)</td>
+             <td class="pb-4 px-5">@Html.DisplayFor(model => model.Detail) </td>
+          </tr>
+
+       </table>
+       <br />
+       <div>
+            <a asp-action="Index">Back to List</a>&nbsp;|&nbsp;
+            <a asp-controller="Products" asp-action="Index">Back to Our Product</a>
+        </div>
+    </div>
+
+</div>
+
+
+

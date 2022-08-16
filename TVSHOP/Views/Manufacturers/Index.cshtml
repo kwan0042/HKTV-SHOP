@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TVShop.DataAccess.Manufacturer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="pt-4 mx-5 text-center px-5">
+    <h1>Television Brands</h1>
+   
+     <hr />
+    <table>
+        <tr>
+            <th class="col-md-2 px-4">
+               <a asp-action="Details" asp-route-id="1">
+                   <img class="img-fluid px-5" src="BrandLogo/LG.png" />
+               </a> 
+            </th>
+            <th class="col-md-2 px-4">
+                <a asp-action="Details" asp-route-id="2">
+                <img class="img-fluid" src="BrandLogo/Samsung.png"/>
+                </a> 
+            </th>
+            <th class="col-md-2 px-4">
+                <a asp-action="Details" asp-route-id="3">
+                <img class="img-fluid" src="BrandLogo/Sony.png"/>
+                </a> 
+            </th>
+            <th class="col-md-2 px-4">
+                <a asp-action="Details" asp-route-id="4">
+                <img class="img-fluid" src="BrandLogo/Philips.png"/>
+                </a> 
+            </th>
+            
+            
+        </tr>
+       
+        <tr>
+            @foreach (var item in Model) {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                    <br>
+                    <a asp-action="Details" asp-route-id="@item.ManufacturerId">Details</a>
+                </td>
+            }
+        </tr>
+    </table>
+    <br>
+    <hr />
+        
+</div>

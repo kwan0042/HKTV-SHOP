@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TVShop</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TVShop.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class=" fixed-top">
+		    <div class="menu">
+			    <ul>
+				    <li>
+                        <a class="menu-item" asp-controller="Home" asp-action="Index">
+					    <img type="image" src="~/Logo/hktvlogo.png" width="20" height="30"/>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="menu-item" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" asp-controller="Home" asp-action="About">About Us</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" asp-controller="Manufacturers" asp-action="Index">TV Brands</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" asp-controller="Products" asp-action="Index">Our Product</a>
+                    </li>
+
+                         @{
+                            if(ViewData["LoggedIn"] != "yes")
+                            {
+                                <div class="menu-item lgibt">
+                                    <a class="menu-item btn btn-outline-warning lgibth" asp-controller="Account" asp-action="Login">Login</a>
+                                </div>
+                            }
+                            else
+                            {   
+                                <li>
+                                    <a class="menu-item" asp-controller="Account" asp-action="AccountDetail">My Account / Order</a>
+                                </li>
+                            }       
+                        }
+                    <li>
+                        <form>
+                            <input  class="search-form"  type="text" name="search" placeholder="Search HKTV">
+                        </form>
+                    </li>
+                    @{
+                        if(ViewData["LoggedIn"] == "yes")
+                        {
+                            <div class="menu-item lgibt">
+                                <a class="menu-item btn btn-outline-warning lgibth"  asp-controller="Account" asp-action="Logout">Logout</a>
+                            </div>
+                        }       
+                    }
+                </ul>
+                
+            </div>
+            
+        </nav>
+        
+    </header>
+    <div @*class="container"*@>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top text-muted text-center">
+        <div class="container pt-3">
+            &copy; 2022 - HKTVShop - <a asp-controller="Home" asp-action="About">About Us</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

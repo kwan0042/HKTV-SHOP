@@ -1,0 +1,2 @@
+This is the MVC Project build Daniel Kwan (Wai Chun, Kwan) SIN 041044290 and Chun Fung To.
+Please create FinalProject and run the HKTV_DB sql file first.
